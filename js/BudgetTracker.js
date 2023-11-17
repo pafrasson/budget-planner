@@ -67,7 +67,7 @@ export default class BudgetTracker {
     }
 
     load() {
-        const entries = JSON.parse()
+        const entries = JSON.parse(localStorage.getItem)
     }
 
     updateSummary() {
