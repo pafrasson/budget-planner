@@ -1,4 +1,5 @@
 const express = require('express')
+const cors = require('cors');
 const bodyParser = require('body-parser');
 const app = express();
 const url = require('url');
@@ -9,6 +10,7 @@ const db = new sqlite.Database('./quote.db', sqlite.OPEN_READWRITE, (err) => {
     if (err) return console.error(err)
 });
 
+app.use(cors());
 app.use(bodyParser.json());
 
 //post request
@@ -60,7 +62,7 @@ app.get('/quote', (req, res) => {
 app.delete('/quote/:id', (req, res) => {
     const id = req.params.id;
     const deleteSql = "DELETE FROM quote WHERE ID = ?";
-    
+
     db.run(deleteSql, [id], (err) => {
         if (err) {
             return res.json({ status: 300, success: false, error: err });

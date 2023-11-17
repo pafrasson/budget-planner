@@ -67,8 +67,34 @@ export default class BudgetTracker {
     }
 
     load() {
-        const entries = JSON.parse(localStorage.getItem)
+        // Faz uma chamada GET para obter os dados JSON
+        fetch('http://localhost:3000/quote')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Erro na requisição: ' + response.status);
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Converte os dados para uma string JSON e armazena no localStorage
+                localStorage.setItem('entries', JSON.stringify(data));
+
+                // Lê os dados do localStorage e converte de volta para um objeto JavaScript
+                entries = JSON.parse(localStorage.getItem('entries') || "[]");
+
+                console.log('Dados carregados com sucesso:', entries);
+
+                // Coloque o código que depende dos dados da API aqui, dentro do segundo bloco then
+                for (const entry of entries) {
+                    this.addEntry(entry);
+                }
+                this.updateSummary();
+            })
+            .catch(error => {
+                console.error('Erro na requisição:', error);
+            });
     }
+
 
     updateSummary() {
 
