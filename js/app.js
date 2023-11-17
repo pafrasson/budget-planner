@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 app.post('/quote', (req, res) => {
     try {
         const { date, description, type, amount } = req.body;
-        sql = "INSERT INTO quote(date, description,type,amount) VALUES (?,?,?,?)"
+        sql = "INSERT INTO quote(date,description,type,amount) VALUES (?,?,?,?)"
         db.run(sql, [date, description, type, amount], (err) => {
             if (err) return res.json({ status: 300, success: false, error: err });
 
@@ -37,6 +37,10 @@ app.post('/quote', (req, res) => {
 app.get('/quote', (req, res) => {
     sql = "SELECT * FROM quote";
     try {
+        const queryObject = url.parse(req.url, true).query; //query parameters
+
+        if (queryObject.field && queryObject.type) sql += ` WHERE ${queryObject.field} LIKE '%${queryObject.type}%'`;
+
         db.all(sql, [], (err, rows) => {
             if (err) return res.json({ status: 300, success: false, error: err });
 
@@ -51,5 +55,19 @@ app.get('/quote', (req, res) => {
         });
     }
 })
+
+// delete by id
+app.delete('/quote/:id', (req, res) => {
+    const id = req.params.id;
+    const deleteSql = "DELETE FROM quote WHERE ID = ?";
+    
+    db.run(deleteSql, [id], (err) => {
+        if (err) {
+            return res.json({ status: 300, success: false, error: err });
+        }
+
+        return res.json({ status: 200, success: true });
+    });
+});
 
 app.listen(3000);
