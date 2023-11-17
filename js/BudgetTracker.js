@@ -66,33 +66,34 @@ export default class BudgetTracker {
         `;
     }
 
-    load() {
-        // Faz uma chamada GET para obter os dados JSON
-        fetch('http://localhost:3000/quote')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Erro na requisição: ' + response.status);
+    async load() {
+        try {
+            const apiUrl = "http://localhost:3000/quote";
+
+            const response = await fetch(apiUrl);
+
+            // Verifique se a solicitação foi bem-sucedida (status 200)
+            if (response.ok) {
+                const responseData = await response.json();
+                console.log(responseData);
+                // Verifica se 'data' é uma matriz antes de iterar sobre ela
+                if (Array.isArray(responseData.data)) {
+                    const entries = responseData.data;
+
+                    for (const entry of entries) {
+                        this.addEntry(entry);
+                    }
+
+                    this.updateSummary();
+                } else {
+                    console.error("Os dados da API não contêm uma matriz:", responseData);
                 }
-                return response.json();
-            })
-            .then(data => {
-                // Converte os dados para uma string JSON e armazena no localStorage
-                localStorage.setItem('entries', JSON.stringify(data));
-
-                // Lê os dados do localStorage e converte de volta para um objeto JavaScript
-                entries = JSON.parse(localStorage.getItem('entries') || "[]");
-
-                console.log('Dados carregados com sucesso:', entries);
-
-                // Coloque o código que depende dos dados da API aqui, dentro do segundo bloco then
-                for (const entry of entries) {
-                    this.addEntry(entry);
-                }
-                this.updateSummary();
-            })
-            .catch(error => {
-                console.error('Erro na requisição:', error);
-            });
+            } else {
+                console.error("Falha ao carregar dados da API:", response.status, response.statusText);
+            }
+        } catch (error) {
+            console.error("Erro ao carregar dados da API:", error);
+        }
     }
 
 
@@ -105,7 +106,7 @@ export default class BudgetTracker {
     }
 
     addEntry(entry = {}) {
-
+        this.root.querySelector(".entries").insertAdjacentHTML("beforeend", BudgetTracker.apply);
     }
 
     getEntryRows() {
