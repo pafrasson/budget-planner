@@ -1,34 +1,40 @@
-# TRABALHO DE MODELAGEM DE SOFTWARE - CONSTRUÇÃO DE UM CRUD, UTILIZANDO JAVA SCRIPT
+# PLANO DE CONTAS
 
-## 1º PARTE - ANALISE DE REQUISITOS
+## Gerenciador de gastos e renda
 
-- VERIFICAR QUAIS OS REQUISITOS DO CLIENTE E ELENCAR NA DOCUMENTAÇÃO DO SOFTWARE.
-- CONSTRUIR UM FLUXO DE PRODUÇÃO BASEADO NO SCRUM
-- FAZER O PROJETO DE UML
+- TECNOLOGIAS UTILIZADAS
 
-## 2º PARTE - CONSTRUÇÃO DO SOFTWARE
+- [![My Skills](https://skillicons.dev/icons?i=javascript,sqlite,nodejs&theme=)](https://skillicons.dev)
+
+## Rodando localmente
+
+Clone o projeto
+
+```bash
+  git clone https://github.com/pafrasson/budget-planner.git
+```
+
+Entre no diretório do projeto
+
+```bash
+  cd budget-planner
+```
+
+Instale as dependências
+
+```bash
+  npm install
+```
+
+Crie um arquivo chamado *quote.db* no diretório raiz do projeto
 
 
-- ESCOLHER ENTRE UM CADASTRO DE PESSOAS (PODE SER ALUNOS, FUNCIONÁRIOS, CLIENTES), PRODUTOS (PODE SER DE AUTOPEÇAS, MATERIAL DE CONSTRUÇÃO, ELÉTRICOS, MÓVEIS...), FINANCEIRO (LANÇAMENTO DE NOTAS, CAIXA, FINANÇAS PESSOAIS)
+
+```bash
+  npm run start
+```
 
 
-## 3º PARTE - INTEGRAÇÃO COM BANCO DE DADOS
+## Autor
 
-- INTEGRAR COM BANCO DE DADOS (PODE ESCOLHER ENTRE MySql, Sql LITE, FIREBASE, etc.)
-
-
-## 4º PARTE - APRESENTAÇÃO
-
-- MONTAR UM TREINAMENTO DE USO DO SISTEMA.
-
-## Documentação
-
-|DEFINIÇÃO DE REQUISITOS| |
-| ----------------- | ---------------------------------------------------------------- |
-| MOTIVAÇÃO       |  |
-| FUNCIONALIDADE  |  |
-| USABILIDADE       |  |
-| CONFIABILIDADE       |  |
-| DESEMPENHO       |  |
-| SUPORTE       |  |
-
+- [@pafrasson](https://www.github.com/pafrasson)
