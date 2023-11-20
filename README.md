@@ -39,7 +39,7 @@ Para adicionar uma nova entrada, clique no botão Adicionar:
 
 <img src="/public/1.png">
 
-Informe os campos de data, descrição, se é um Gasto ou Renda, valor e clique no botão de salvar para gravar esta nova entrada:
+Informe os campos de data, descrição, se é um Gasto ou Renda, valor e clique no botão de salvar para gravar esta nova entrada, caso seja uma entrada que já existe, você pode estar alterando qualquer campo e clicando no botão de gravar novamente, assim, essa entrada será atualizada
 
 <img src="/public/2.png">
 <img src="/public/3.png">
