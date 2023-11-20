@@ -26,12 +26,13 @@ Instale as dependências
   npm install
 ```
 
-Crie um arquivo chamado *quote.db* no diretório raiz do projeto
+Crie um arquivo chamado **quote.db** no diretório raiz do projeto
 
-
+Execute os seguintes comandos
 
 ```bash
-  npm run start
+  node ./js/table.js
+  node ./js/app.js
 ```
 
 
