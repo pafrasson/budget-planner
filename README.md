@@ -35,8 +35,23 @@ Execute os seguintes comandos
   node ./js/app.js
 ```
 ## Demonstração
+Para adicionar uma nova entrada, clique no botão Adicionar:
 
 <img src="/public/1.png">
+
+Informe os campos de data, descrição, se é um Gasto ou Renda, valor e clique no botão de salvar para gravar esta nova entrada:
+
+<img src="/public/2.png">
+<img src="/public/3.png">
+
+Os dados ficarão salvos no banco de dados local:
+
+<img src="/public/4.png">
+
+Caso queira remover a entrada, basta clicar no botão de remover ao lado da entrada:
+
+<img src="/public/5.png">
+<img src="/public/6.png">
 
 ## Autor
 
