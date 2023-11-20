@@ -59,6 +59,19 @@
     cursor: pointer;
 }
 
+.save-entry {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    background: none;
+    color: blue;
+    border: none;
+    border-radius: 50%;
+    outline: none;
+    cursor: pointer;
+}
+
 .new-entry {
     width: 30px;
     background: none;
@@ -71,6 +84,10 @@
 
 .delete-entry:hover {
     background: rgba(255, 0, 0, 0.322);
+}
+
+.save-entry:hover {
+    background: rgba(0, 247, 255, 0.322);
 }
 
 .controls,

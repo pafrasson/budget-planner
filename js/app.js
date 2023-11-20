@@ -72,4 +72,19 @@ app.delete('/quote/:id', (req, res) => {
     });
 });
 
+// put request
+app.put('/quote/:id', (req, res) => {
+    const id = req.params.id;
+    const { date, description, type, amount } = req.body;
+    const updateSql = "UPDATE quote SET date=?, description=?, type=?, amount=? WHERE id=?";
+
+    db.run(updateSql, [date, description, type, amount, id], (err) => {
+        if (err) {
+            return res.json({ status: 300, success: false, error: err });
+        }
+
+        return res.json({ status: 200, success: true });
+    });
+});
+
 app.listen(3000);
