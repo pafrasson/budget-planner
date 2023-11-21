@@ -52,8 +52,8 @@ export default class BudgetTracker {
             </td>
             <td>
                 <select class="input input-type">
-                    <option value="income">Renda</option>
-                    <option value="expense">Gasto</option>   
+                    <option value="income">Receita</option>
+                    <option value="expense">Despesa</option>   
                 </select>
             </td>
             <td>

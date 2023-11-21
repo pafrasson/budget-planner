@@ -1,6 +1,6 @@
-# PLANO DE CONTAS
+# Fluxo de Caixa
 
-## Gerenciador de gastos e renda
+## Gerenciador de Receita e Despesas
 
 - TECNOLOGIAS UTILIZADAS
 
@@ -39,10 +39,9 @@ Para adicionar uma nova entrada, clique no botão Adicionar:
 
 <img src="/public/1.png">
 
-Informe os campos de data, descrição, se é um Gasto ou Renda, valor e clique no botão de salvar para gravar esta nova entrada, caso seja uma entrada que já existe, você pode estar alterando qualquer campo e clicando no botão de gravar novamente, assim, essa entrada será atualizada
+Informe os campos de data, descrição, se é uma Despesa ou Receita, valor e clique no botão de salvar para gravar esta nova entrada, caso seja uma entrada que já existe, você pode estar alterando qualquer campo e clicando no botão de gravar novamente, assim, essa entrada será atualizada
 
 <img src="/public/2.png">
-<img src="/public/3.png">
 
 Os dados ficarão salvos no banco de dados local:
 
@@ -50,8 +49,8 @@ Os dados ficarão salvos no banco de dados local:
 
 Caso queira remover a entrada, basta clicar no botão de remover ao lado da entrada:
 
+<img src="/public/3.png">
 <img src="/public/5.png">
-<img src="/public/6.png">
 
 ## Autor
 
