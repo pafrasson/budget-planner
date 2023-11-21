@@ -110,43 +110,6 @@ export default class BudgetTracker {
         this.root.querySelector(".total").textContent = totalFormatted;
     }
 
-    save() {
-        /*const data = this.getEntryRows().map(row => {
-            const dateValue = row.querySelector(".input-date").value;
-            const descriptionValue = row.querySelector(".input-description").value;
-            const typeValue = row.querySelector(".input-type").value;
-            const amountValue = parseFloat(row.querySelector(".input-amount").value);
-
-            if (dateValue && descriptionValue && typeValue && amountValue) {
-                // Construir o objeto para enviar para a API
-                var dataToSend = {
-                    "date": dateValue,
-                    "description": descriptionValue,
-                    "type": typeValue,
-                    "amount": amountValue
-                };
-
-                // Enviar dados para a API (substitua a URL pela sua API endpoint)
-                $.ajax({
-                    url: 'http://localhost:3000/quote',
-                    type: 'POST',
-                    contentType: 'application/json',
-                    data: JSON.stringify(dataToSend),
-                    success: function (response) {
-                        console.log('Dados enviados com sucesso:', response);
-                    },
-                    error: function (error) {
-                        console.error('Erro ao enviar dados:', error);
-                    }
-                });
-            } else {
-                alert('Por favor, preencha todos os campos.');
-            }
-        });
-
-        this.updateSummary();*/
-    }
-
     addEntry(entry = {}) {
         this.root.querySelector(".entries").insertAdjacentHTML("beforeend", BudgetTracker.entryHtml());
 
@@ -190,11 +153,9 @@ export default class BudgetTracker {
         })
             .then(response => {
                 if (response.ok) {
-                    // Remove the entry from the UI
                     const entryRow = this.root.querySelector(`tr[data-entry-id="${entryId}"]`);
                     entryRow.remove();
 
-                    // Update the summary or perform other necessary actions
                     this.updateSummary();
                 } else {
                     console.error("Failed to delete entry from API:", response.status, response.statusText);
@@ -204,15 +165,6 @@ export default class BudgetTracker {
                 console.error("Error deleting entry from API:", error);
             });
         this.updateSummary();
-    }
-
-    createPostBody(data) {
-        return {
-            date: data.date,
-            description: data.description,
-            type: data.type,
-            amount: data.amount
-        };
     }
 
     onSaveEntryBtnClick(e) {
@@ -229,10 +181,9 @@ export default class BudgetTracker {
         };
 
         fetch(apiUrl, {
-            method: entryId ? "PUT" : "POST", // Use PUT for updating existing entries
+            method: entryId ? "PUT" : "POST",
             headers: {
                 "Content-Type": "application/json",
-                // Add other headers if needed
             },
             body: JSON.stringify(entryData),
         })
